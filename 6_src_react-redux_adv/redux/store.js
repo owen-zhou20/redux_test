@@ -1,5 +1,5 @@
 import {legacy_createStore as createStore, applyMiddleware} from 'redux'
-import countReducer from './reducers/count'
+import countReducer from './count_reducer'
 import thunk from 'redux-thunk'
 
 
