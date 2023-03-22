@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {
-    increment,
-    decrement,
-    incrementAsync
+    createIncrementAction,
+    createDecrementAction,
+    createIncrementAsyncAction
 } from '../../redux/actions/count'
 
 // UI component
@@ -74,9 +74,9 @@ export default connect(
         personCount:state.personR.length
     }),
     {
-        add:increment,
-        sub:decrement,
-        addAsync:incrementAsync
+        add:createIncrementAction,
+        sub:createDecrementAction,
+        addAsync:createIncrementAsyncAction
     }
 )(Count)
 

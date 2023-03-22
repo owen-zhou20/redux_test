@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {nanoid} from 'nanoid'
 import {connect} from 'react-redux'
-import {addPerson} from '../../redux/actions/person'
+import {createAddPersonAction} from '../../redux/actions/person'
 
 class Person extends Component {
 
@@ -23,7 +23,7 @@ class Person extends Component {
             <button onClick={this.addPerson}>Add this person</button>
             <ul>
                 {
-                    this.props.personArr.map((p)=>{
+                    this.props.person.map((p)=>{
                         return <li key={p.id}>{p.name}--{p.age}</li>
                     })
                 }
@@ -35,8 +35,8 @@ class Person extends Component {
 
 export default connect(
     state => ({
-        personArr:state.personR,
+        person:state.personR,
         count:state.countR
     }),
-    {addAPerson:addPerson}
+    {addAPerson:createAddPersonAction}
 )(Person)
